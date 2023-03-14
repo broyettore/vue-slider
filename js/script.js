@@ -11,6 +11,7 @@ const vm = createApp({
             title: "Spiderman",
             active: 0,
             activeClass: "thumb active",
+            setInt: "",
             slides: [
                 {
                     image: 'img/01.webp',
@@ -74,12 +75,20 @@ const vm = createApp({
             }
         },
 
-        // stopPlay() {
-        //     return clearInterval(setInterval(this.nextImg(), 3000));
-        // },
+        stopInt() {
+            if(this.startInt) {
+                clearInterval(this.setInt);
+            } 
+        },
+
+        startInt() {
+            if(this.stopInt) {
+                setInterval(this.nextImg, 3000)
+            }
+        },
     }, 
     mounted() {
-        setInterval(() => this.nextImg(), 3000)
+        this.setInt = setInterval(() => this.nextImg(), 3000)
 }
     
 }).mount("#app")
