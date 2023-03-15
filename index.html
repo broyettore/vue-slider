@@ -30,7 +30,7 @@
                     <!-- <div v-for="(element, index) in slides" class="thumb" :class="(index === 0) ? 'active' : ''">  option 1 -->
                     <!-- <div v-for="(element, index) in slides" class="thumb" :class="{ active : index === 0 }"> option 2 -->
                     <div v-for="(element, index) in slides" class="thumb" :class="{ active : isActive(index) }"> <!-- option 3 -->
-                        <img :src="element.image" @click="currentImg(index, $event)"/>
+                        <img :src="element.image" :alt="element.title" @click="currentImg(index, $event)"/>
                     </div>
             </div>
         </div>
